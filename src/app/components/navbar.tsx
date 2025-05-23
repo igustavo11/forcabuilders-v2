@@ -24,16 +24,17 @@ export default function Navbar() {
 
     return(
        <header className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${scrolling ? 'bg-colorgray' : 'bg-transparent'}`}>
-        <nav className="max-w-7xl mx-auto w-full flex justify-between items-center p-6 text-white"> 
-            <div className="flex items-center ">
+        <nav className="max-w-7xl mx-auto w-full flex justify-between items-center p-3 text-white"> 
+            <div className="flex items-center">
                   <Image
                     src="/img/logo.png"
                     alt="Logo"
-                    width={120}
-                    height={90}
+                    width={100}
+                    height={75}
+                    className="h-auto"
                      />
             </div>              
-            <ul className="flex space-x-6 md:space-x-9">
+            <ul className="flex space-x-4 md:space-x-6 text-md">
                 <li className="hover:text-colorprimary transition-colors">
                     <Link href="/">Home</Link>
                 </li>

@@ -16,6 +16,7 @@
     "next": "15.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "simple-icons": "^14.14.0",
     "swiper": "^11.2.7",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7"
