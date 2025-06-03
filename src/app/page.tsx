@@ -1,6 +1,8 @@
 import Slider from "./components/swiper/slider";
 import Link from "next/link";
 import Image from "next/image";
+import { Instagram, Youtube, MessageCircle, MapPin } from 'lucide-react';
+import Homecards from "./components/cards/homecards";
 
 export default function Home() {
   return (
@@ -114,63 +116,43 @@ export default function Home() {
             </h3>
             <div className="w-24 h-1 bg-colorprimary mt-4"></div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="group">
-              <div className="overflow-hidden mb-6">
-                <Image
-                  src="/img/cards-home/card1.jpg"
-                  alt="Quality"
-                  width={500}
-                  height={400}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="border-l-4 border-colorprimary pl-4">
-                <h3 className="text-2xl font-bold mb-2">Quality</h3>
-                <p className="text-gray-700 font-medium">
-                  Within our highest levels of craft
-                </p>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="overflow-hidden mb-6">
-                <Image
-                  src="/img/cards-home/card2.jpg"
-                  alt="Care"
-                  width={500}
-                  height={400}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="border-l-4 border-colorprimary pl-4">
-                <h3 className="text-2xl font-bold mb-2">Care</h3>
-                <p className="text-gray-700 font-medium">
-                  For the unique needs of our client
-                </p>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="overflow-hidden mb-6">
-                <Image
-                  src="/img/cards-home/card3.jpg"
-                  alt="Commitment"
-                  width={500}
-                  height={400}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="border-l-4 border-colorprimary pl-4">
-                <h3 className="text-2xl font-bold mb-2">Commitment</h3>
-                <p className="text-gray-700 font-medium">
-                  To doing the job the right way - always
-                </p>
-              </div>
-            </div>
-          </div>
+          <Homecards></Homecards>
         </div>
+      </section>
+
+      <section className="py-16 px-4 md:px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h3 className="text-2xl font-bold mb-2">
+              See more on our social channels
+          </h3>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+            <Link
+              href="https://www.youtube.com/@forcabuilders"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-red-600 to-red-500 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300 text-center"
+            >
+              Youtube
+              <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-red-700">
+                <Youtube size={25}/>
+              </span>
+            </Link>
+
+            <Link
+              href="https://www.instagram.com/forcabuilders/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-500 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300 text-center"
+            >
+              Instagram
+              <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-pink-700">
+                <Instagram size={25} />
+              </span>
+            </Link>
+          </div>
+
+        </div>
+
       </section>
     </>
   );
