@@ -56,10 +56,10 @@ export default function Navbar() {
                     </Link>
                 </li>
                 <li className="group">
-                    <Link href="/portfolio" className={`flex items-center hover:text-colorprimary transition-colors ${isActive('/portfolio') ? 'text-colorprimary' : ''}`}>
+                    <Link href="/portifolio" className={`flex items-center hover:text-colorprimary transition-colors ${isActive('/portfolio') ? 'text-colorprimary' : ''}`}>
                         <FolderOpen size={16} className="mr-1" />
                         <span>Portfolio</span>
-                        <span className={`block h-0.5 bg-colorprimary mt-0.5 transition-all duration-300 ${isActive('/portfolio') ? 'max-w-full' : 'max-w-0 group-hover:max-w-full'}`}></span>
+                        <span className={`block h-0.5 bg-colorprimary mt-0.5 transition-all duration-300 ${isActive('/portifolio') ? 'max-w-full' : 'max-w-0 group-hover:max-w-full'}`}></span>
                     </Link>
                 </li>
                 <li className="group">

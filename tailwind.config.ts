@@ -50,7 +50,7 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-			 colorprimary: 'var(--colorprimary)',  // Adicionando as cores personalizadas
+			 colorprimary: 'var(--colorprimary)', 
       		 colorwhite: 'var(--colorwhite)',
       		 colorgray: 'var(--colorgray)'
 			
