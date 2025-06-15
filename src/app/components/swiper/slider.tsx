@@ -8,13 +8,13 @@ import { Button } from "@/components/ui/button";
 
 const slides = [
 	{
-		image: "/img/swiper/ft1.png",
+		image: "/img/swiper/ft5.jpg",
 	},
 	{
 		image: "/img/swiper/ft2.png",
 	},
 	{
-		image: "/img/swiper/ft3.png",
+		image: "/img/swiper/ft1.png",
 	},
 	{
 		image: "/img/swiper/ft4.png",
