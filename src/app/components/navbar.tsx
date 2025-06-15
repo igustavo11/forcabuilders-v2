@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 import { House, Wrench, FolderOpen, Mail, Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
     const [scrolling, setScrolling] = useState(false)
@@ -37,6 +38,7 @@ export default function Navbar() {
     const closeMobileMenu = () => {
         setMobileMenuOpen(false)
     }
+
     const menuItems = [
         { href: "/", label: "Home", icon: House },
         { href: "/services", label: "Services", icon: Wrench },
@@ -82,13 +84,15 @@ export default function Navbar() {
             </ul>
 
             {/* Mobile Menu Button */}
-            <button
-                className="md:hidden p-2 hover:text-colorprimary transition-colors"
+            <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden text-white hover:text-colorprimary hover:bg-transparent"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
             >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </Button>
         </nav>
 
         {/* Mobile Menu Overlay */}
@@ -127,13 +131,15 @@ export default function Navbar() {
                                 height={60}
                                 className="h-auto"
                             />
-                            <button
+                            <Button
+                                variant="ghost"
+                                size="icon"
                                 onClick={closeMobileMenu}
-                                className="p-2 hover:text-colorprimary transition-colors text-white"
+                                className="text-white hover:text-colorprimary hover:bg-gray-700"
                                 aria-label="Close menu"
                             >
                                 <X size={24} />
-                            </button>
+                            </Button>
                         </div>
 
                         {/* Mobile Menu Items */}

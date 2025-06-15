@@ -1,7 +1,7 @@
 import Slider from "./components/swiper/slider";
 import Link from "next/link";
-import Image from "next/image";
-import { Instagram, Youtube, MessageCircle, MapPin } from 'lucide-react';
+import { Instagram, Youtube, ArrowRight } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 import Homecards from "./components/cards/homecards";
 
 export default function Home() {
@@ -57,8 +57,8 @@ export default function Home() {
 
                 <div className="bg-gray-50 p-5 lg:p-6 rounded-xl border-l-4 border-colorprimary shadow-sm">
                   <p className="text-base lg:text-lg leading-relaxed italic text-gray-800">
-                    "For over a decade, we have dedicated ourselves to
-                    transforming houses into homes for our valued clients."
+                    For over a decade, we have dedicated ourselves to
+                    transforming houses into homes for our valued clients.
                   </p>
                 </div>
 
@@ -73,7 +73,7 @@ export default function Home() {
                   <p className="text-base lg:text-lg leading-relaxed font-medium text-gray-800">
                     At Força Builders,{" "}
                     <span className="text-colorprimary font-bold">
-                      "Welcome Home"
+                      Welcome Home
                     </span>{" "}
                     is not merely a phrase; it embodies our company culture,
                     which is built on collaboration, continuous learning, and
@@ -84,25 +84,16 @@ export default function Home() {
             </div>
 
             <div className="pt-4">
-              <Link
-                href="/portfolio"
-                className="group bg-colorprimary hover:bg-colorprimary/90 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:shadow-colorprimary/25 hover:-translate-y-1"
+              <Button 
+                asChild 
+                className="group bg-colorprimary hover:bg-colorprimary/90 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-colorprimary/25 hover:-translate-y-1"
+                size="lg"
               >
-                <span className="text-base">View Our Portfolio</span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
+                <Link href="/portifolio" className="inline-flex items-center gap-2">
+                  <span className="text-base">View Our Portfolio</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -126,29 +117,33 @@ export default function Home() {
               See more on our social channels
           </h3>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
-            <Link
-              href="https://www.youtube.com/@forcabuilders"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative flex items-center justify-center w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-red-600 to-red-500 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300 text-center"
-            >
-              Youtube
-              <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-red-700">
-                <Youtube size={25}/>
-              </span>
-            </Link>
+            <Button asChild className="relative w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300">
+              <Link
+                href="https://www.youtube.com/@forcabuilders"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-center"
+              >
+                Youtube
+                <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-red-700">
+                  <Youtube size={25}/>
+                </span>
+              </Link>
+            </Button>
 
-            <Link
-              href="https://www.instagram.com/forcabuilders/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative flex items-center justify-center w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-500 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300 text-center"
-            >
-              Instagram
-              <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-pink-700">
-                <Instagram size={25} />
-              </span>
-            </Link>
+            <Button asChild className="relative w-[200px] pl-6 pr-12 py-2.5 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-500 hover:from-pink-700 hover:to-pink-600 text-white text-base font-bold uppercase shadow-md hover:shadow-xl transition-all duration-300">
+              <Link
+                href="https://www.instagram.com/forcabuilders/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center text-center"
+              >
+                Instagram
+                <span className="absolute right-0 h-full w-10 rounded-r-lg grid place-items-center bg-pink-700">
+                  <Instagram size={25} />
+                </span>
+              </Link>
+            </Button>
           </div>
 
         </div>

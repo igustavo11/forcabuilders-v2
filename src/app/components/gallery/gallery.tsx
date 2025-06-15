@@ -8,17 +8,20 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { categories, projects } from "@/ultils/portfolio"
 
-// Adicionar "All" às categorias existentes
 const allCategories = [
   { id: "all", label: "All" },
   ...categories
 ]
 
+interface ImageData {
+  src: string;
+  title: string;
+}
+
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("all")
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [categoryImagesList, setCategoryImagesList] = useState<any[]>([])
 
   const filteredProjects =
     activeCategory === "all" ? projects : projects.filter((project) => project.category === activeCategory)
@@ -36,18 +39,17 @@ export default function Gallery() {
   }
 
   // Função para gerar array de todas as imagens quando categoria específica é selecionada
-  const getAllImagesFromCategory = () => {
+  const getAllImagesFromCategory = (): ImageData[] => {
     if (activeCategory === "all") return []
     
     const categoryProjects = projects.filter((project) => project.category === activeCategory)
-    const allImages: { src: string; title: string; location: string }[] = []
+    const allImages: ImageData[] = []
     
     categoryProjects.forEach((project) => {
       project.images.forEach((image) => {
         allImages.push({
           src: image,
           title: project.title,
-          location: project.location || ""
         })
       })
     })
@@ -67,9 +69,21 @@ export default function Gallery() {
       category: activeCategory,
       images: allCategoryImages.map(img => img.src)
     }
-    setCategoryImagesList(allCategoryImages)
     setSelectedProject(tempProject)
     setCurrentImageIndex(startIndex)
+  }
+
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId)
+  }
+
+  const handleProjectSelect = (project: typeof projects[0]) => {
+    setSelectedProject(project)
+    setCurrentImageIndex(0)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedProject(null)
   }
 
   return (
@@ -80,7 +94,7 @@ export default function Gallery() {
           {allCategories.map((category) => (
             <motion.button
               key={category.id}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               className={`text-sm font-medium transition-colors relative ${
                 activeCategory === category.id
                   ? "text-colorprimary"
@@ -117,11 +131,7 @@ export default function Gallery() {
                 <motion.div
                   key={`${activeCategory}-${project.id}`}
                   className="group cursor-pointer"
-                  onClick={() => {
-                    setSelectedProject(project)
-                    setCurrentImageIndex(0)
-                    setCategoryImagesList([])
-                  }}
+                  onClick={() => handleProjectSelect(project)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
@@ -185,7 +195,7 @@ export default function Gallery() {
                   <div className="overflow-hidden rounded-lg bg-gray-200 relative">
                     <Image
                       src={image.src}
-                      alt={`Image ${index + 1}`}
+                      alt={`Gallery image ${index + 1}`}
                       width={600}
                       height={400}
                       className="aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -205,8 +215,7 @@ export default function Gallery() {
         open={!!selectedProject} 
         onOpenChange={(open) => {
           if (!open) {
-            setSelectedProject(null)
-            setCategoryImagesList([])
+            handleCloseModal()
           }
         }}
       >
@@ -221,10 +230,7 @@ export default function Gallery() {
                 variant="ghost"
                 size="icon"
                 className="absolute right-4 top-4 z-10 rounded-full bg-white/90 hover:bg-white shadow-lg"
-                onClick={() => {
-                  setSelectedProject(null)
-                  setCategoryImagesList([])
-                }}
+                onClick={handleCloseModal}
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -233,7 +239,7 @@ export default function Gallery() {
               <div className="relative bg-gray-200">
                 <Image
                   src={selectedProject.images[currentImageIndex]}
-                  alt={selectedProject.title}
+                  alt={selectedProject.title || `Project image ${currentImageIndex + 1}`}
                   width={1200}
                   height={900}
                   className="w-full h-auto object-contain max-h-[80vh]"
@@ -250,6 +256,7 @@ export default function Gallery() {
                       size="icon"
                       className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 hover:bg-white shadow-lg"
                       onClick={prevImage}
+                      aria-label="Previous image"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </Button>
@@ -258,6 +265,7 @@ export default function Gallery() {
                       size="icon"
                       className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 hover:bg-white shadow-lg"
                       onClick={nextImage}
+                      aria-label="Next image"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </Button>
@@ -273,7 +281,7 @@ export default function Gallery() {
               </div>
 
               {/* Project Info - Only show when activeCategory is "all" */}
-              {activeCategory === "all" && (
+              {activeCategory === "all" && selectedProject.title && (
                 <div className="p-6">
                   <h2 className="text-2xl font-medium text-gray-900">{selectedProject.title}</h2>
                 </div>
