@@ -11,10 +11,10 @@ import emailjs from '@emailjs/browser';
 export default function Contact(){
 
     const createMessageFormSchema = z.object ({
-    name: z.string().nonempty('O nome e obrigatrio'), //teste em portugues mesmo
-    email: z.string().nonempty('O email é obrigatorio').email('Formato invalido'),
-    phone: z.string().nonempty('O telefone e obrigatório').regex(/^\d+$/, 'Digite apenas numeros'),
-    message: z.string().nonempty('Campo obrigatório'),
+    name: z.string().nonempty('Name is required'),
+    email: z.string().nonempty('Email is required').email('Invalid format'),
+    phone: z.string().nonempty('Phone number is required').regex(/^\d+$/, 'Enter numbers only'),
+    message: z.string().nonempty('Required field'),
   })
 
   type createMessageFormData = z.infer<typeof createMessageFormSchema>
@@ -26,10 +26,6 @@ export default function Contact(){
     resolver: zodResolver(createMessageFormSchema),
   })
 
-  console.log("serviço:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-  console.log("template:", process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
-  console.log("chave:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
-
   function handleFormSubmit(data: createMessageFormData) {
     const templateParams = {
       name: data.name,
@@ -37,7 +33,6 @@ export default function Contact(){
       phone: data.phone,
       message: data.message,
     };
-    console.log("templateParams", templateParams);
 
     emailjs
       .send(
@@ -48,10 +43,10 @@ export default function Contact(){
       )
       .then(
         () => {
-          alert("mensagem enviada com sucesso");
+          alert("Message sent successfully!");
         },
         (error) => {
-          alert("erro ao enviar. tente novamente.");
+          alert("Failed to send. Please try again.");
         }
       );
   } 
