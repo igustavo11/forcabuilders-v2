@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Contact(){
@@ -27,29 +29,36 @@ export default function Contact(){
   })
 
   function handleFormSubmit(data: createMessageFormData) {
-    const templateParams = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
-    };
+        const templateParams = {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            message: data.message,
+        };
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-        },
-        (error) => {
-          alert("Failed to send. Please try again.");
-        }
-      );
-  } 
+        emailjs
+            .send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                templateParams,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            )
+            .then(
+                () => {
+                    toast.success('Message sent successfully!', {
+                        position: "top-center",
+                        autoClose: 3000
+                    });
+                },
+                (error) => {
+                    toast.error('Failed to send. Please try again.', {
+                        position: "top-center",
+                        autoClose: 3000
+                    });
+                    console.error('EmailJS error:', error);
+                }
+            );
+    } 
 
   return(
      <div className="w-full relative -mt-32">
@@ -80,9 +89,9 @@ export default function Contact(){
                 </div>
 
       <section className="w-full px-4 md:px-12 lg:px-24 py-20 bg-white">
-        <div className="max-w-7x1 mx-auto grid grid-cols-1  md:grid-cols-2 gap-12">
-        
-          <div className="space-y-8">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    <div className="space-y-8 mx-auto w-full max-w-[450px]">
           <div className="w-full max-w-[450px]">
           <Image
               src="/img/contact.jpg"
@@ -133,10 +142,10 @@ export default function Contact(){
           </div>
 
         
-          <div className="space-y-6">
+          <div className="space-y-6 mx-auto w-full max-w-[450px]"> 
             <h3 className="text-3xl font-bold text-colorprimary mb-4">Send us a message</h3>
 
-            <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4 " id="contact-form">
+            <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4" id="contact-form">
               <div>
                 <input
                   type="text"
@@ -188,6 +197,8 @@ export default function Contact(){
           </div>
         </div>
       </section>
+      
+      <ToastContainer /> {/* Add this at the end of your component */}
             </div>
 
       

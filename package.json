@@ -21,6 +21,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.58.1",
+    "react-toastify": "^11.0.5",
     "simple-icons": "^14.14.0",
     "swiper": "^11.2.7",
     "tailwind-merge": "^3.3.0",
