@@ -57,8 +57,6 @@ export const projects = [
       "/img/portfolio/casa2/16.jpg",
       "/img/portfolio/casa4/1.jpg",
       "/img/portfolio/casa4/2.jpg",
-      "/img/portfolio/casa4/1.jpg",
-      '/img/portfolio/casa4/2.jpg',
       '/img/portfolio/casa4/3.jpg',
       '/img/portfolio/casa4/4.jpg',
       '/img/portfolio/casa4/5.jpg',

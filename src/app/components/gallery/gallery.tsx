@@ -150,10 +150,9 @@ export default function Gallery() {
                       width={800}
                       height={600}
                       className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      quality={95}
-                      unoptimized
-                      priority
-                    />
+                      quality={80}
+                      {...(index === 0 ? { priority: true } : { loading: "lazy" })}
+                      />
                   </div>
                   <motion.div 
                     className="mt-4"
@@ -199,8 +198,8 @@ export default function Gallery() {
                       width={600}
                       height={400}
                       className="aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      quality={95}
-                      unoptimized
+                      quality={80}
+                      {...(index === 0 ? { priority: true } : { loading: "lazy" })}
                     />
                   </div>
                 </motion.div>
@@ -243,9 +242,8 @@ export default function Gallery() {
                   width={1200}
                   height={900}
                   className="w-full h-auto object-contain max-h-[80vh]"
-                  quality={100}
-                  unoptimized
-                  priority
+                  quality={80}
+                  loading="lazy"
                 />
 
                 {/* Navigation - Always show if there are multiple images */}

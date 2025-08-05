@@ -24,7 +24,7 @@ export default function Portifolio() {
               alt="Portfolio Banner - Our Quality Construction Projects"
               fill
               className="object-cover object-center"
-              quality={100}
+              quality={80}
               priority
               unoptimized
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
