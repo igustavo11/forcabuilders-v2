@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Forca Builders - Institutional Website
+
+## Overview
+
+Forca Builders is an institutional website for a local construction company based in the USA. This project showcases the company's services, portfolio, and contact information, providing a professional online presence to attract clients and demonstrate expertise in construction and building projects.
+
+The website is built with modern web technologies to ensure a responsive, fast, and user-friendly experience across all devices.
+
+## Features
+
+- **Home Page**: Engaging landing page with hero sections, service highlights, and testimonials.
+- **Services**: Detailed descriptions of construction services offered.
+- **Portfolio**: Gallery of completed projects with high-quality images.
+- **Contact**: Contact form and information for inquiries.
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices.
+- **Image Gallery**: Interactive galleries for services and portfolio.
+
+
+## Technologies Used
+
+- **Framework**: [Next.js](https://nextjs.org/) - A React framework for production-grade web applications.
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - For type-safe JavaScript development.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) - Reusable UI components built on Radix UI and Tailwind CSS.
+- **Linting**: [ESLint](https://eslint.org/) - For code quality and consistency.
+- **Build Tool**: [PostCSS](https://postcss.org/) - For processing CSS with Tailwind.
+- **Deployment**: Ready for deployment on [Vercel](https://vercel.com/) or other hosting platforms.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 18 or higher)
+- npm, yarn, pnpm, or bun
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/igustavo11/forcabuilders-v2.git
+   cd forcabuilders-v2
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-## Learn More
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/`: Next.js app directory with pages and components.
+- `public/`: Static assets including images and videos.
+- `components/`: Reusable UI components.
+- `lib/`: Utility functions.
+- `utils/`: Additional utilities, such as portfolio data.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For inquiries or support, please visit the [Contact Page](http://localhost:3000/contact) or reach out directly.
+
+
