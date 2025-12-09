@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Instagram, Youtube, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Homecards from "./components/cards/homecards";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | Quality Construction & Renovations in NJ",
+  description: "Welcome to Força Builders. We deliver excellence in residential and commercial construction. From new builds to renovations, we build with passion.",
+};
 
 export default function Home() {
   return (

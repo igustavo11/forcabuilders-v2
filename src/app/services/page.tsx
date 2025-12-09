@@ -1,9 +1,56 @@
 import Image from "next/image";
 import CardsServices  from "../components/cards-services";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Services | Residential & Commercial Construction",
+  description: "Explore our construction services including custom home building, commercial projects, and mixed-use developments across New Jersey.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Construction Services",
+  "provider": {
+    "@type": "GeneralContractor",
+    "name": "Força Builders"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Construction Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Home Building"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Construction"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renovations"
+        }
+      }
+    ]
+  }
+};
 
 export default function Services() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="w-full relative -mt-32">
                 <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">               
                     <div className="absolute inset-0 bg-black/30 z-10"></div>
