@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     template: "%s | Força Builders"
   },
   description: "Força Builders specializes in residential, commercial, and mixed-use construction in New Jersey. Transforming houses into homes with quality craftsmanship.",
-  keywords: ["construction company NJ", "custom home builder", "commercial renovation", "general contractor New Jersey", "Força Builders"],
   openGraph: {
     type: "website",
     locale: "en_US",
