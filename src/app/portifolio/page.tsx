@@ -1,5 +1,11 @@
 import Image from 'next/image';
 import Gallery from '../components/gallery/gallery';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio | Our Construction Projects",
+  description: "View our gallery of completed projects. See how Força Builders transforms spaces with high-quality craftsmanship and attention to detail.",
+};
 
 export default function Portifolio() {
   return(
