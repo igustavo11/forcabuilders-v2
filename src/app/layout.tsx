@@ -12,6 +12,7 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://forcabuilders.com"),
   title: {
     default: "Força Builders | Premier Construction Company in New Jersey",
     template: "%s | Força Builders"
