@@ -63,7 +63,10 @@ const jsonLd = {
     "https://www.instagram.com/forcabuilders/",
     "https://www.youtube.com/@forcabuilders"
   ],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "verification": {
+    "google": "O-_iFug76K6KdCG82vmxMN7JJHesI4cyqKkxJkqACfQ"
+  }
 };
 
 export default function RootLayout({
